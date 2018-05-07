@@ -9,7 +9,8 @@ public:
 	char chr;
 	Pair();
 	Pair(int x,int y);
-	Pair & operator=(char chr);
+	Pair& operator=(char chr);
+    bool operator==(char other)const;
 
 
 private:

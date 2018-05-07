@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <stdbool.h>
 #include "Pair.h"
 #include "IllegalCharException.h"
 using namespace std;
@@ -23,4 +23,11 @@ Pair& Pair::operator=(char chr){
 	this->chr = chr;
 
 	return *this;
+}
+
+bool Pair::operator==(char other)const{
+	 if(chr==other)
+	    return true;
+	  return false;
+
 }
