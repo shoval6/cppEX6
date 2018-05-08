@@ -15,7 +15,7 @@ public:
 	Pair(int x,int y);
 	Pair& operator=(char chr);
     bool operator==(char other)const;
-    friend ostream& operator<< (ostream& os, Pair const& pr);
+    operator char() const;
 
 private:
 };

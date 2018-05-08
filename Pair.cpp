@@ -31,7 +31,7 @@ bool Pair::operator==(char other)const{
 
 }
 
-ostream& operator<<(ostream& os, Pair const& pr){
-	os << pr.chr<<endl;
-return os;
+
+Pair::operator char() const{
+	return this->chr;
 }
