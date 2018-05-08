@@ -2,7 +2,6 @@
 #include <stdbool.h>
 #include "Pair.h"
 #include "IllegalCharException.h"
-using namespace std;
 
 
 
@@ -30,4 +29,9 @@ bool Pair::operator==(char other)const{
 	    return true;
 	  return false;
 
+}
+
+ostream& operator<<(ostream& os, Pair const& pr){
+	os << pr.chr<<endl;
+return os;
 }

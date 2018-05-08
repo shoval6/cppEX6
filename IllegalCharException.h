@@ -1,9 +1,6 @@
 
 #pragma once
 
-#ifndef ILLEGALCHAREXCEPTION_HPP_
-#define ILLEGALCHAREXCEPTION_HPP_
-
 
 class IllegalCharException{
 
@@ -14,10 +11,6 @@ IllegalCharException(char chr);
 char theChar() const;
 
 
-
 };
 
 
-
-
-#endif /* ILLEGALCHAREXCEPTION_HPP_ */

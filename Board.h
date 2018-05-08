@@ -3,12 +3,6 @@
 using namespace std;
 
 
-#ifndef BOARD_HPP_
-#define BOARD_HPP_
-
-
-
-
 class Board{
 
 	Pair** array2D;
@@ -26,9 +20,5 @@ void initial();
 void copy(const Board &other);
 void free();
 friend ostream& operator<<(ostream& os, const Board& br);
-
 };
 
-
-
-#endif /* BOARD_HPP_ */

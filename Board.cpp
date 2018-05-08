@@ -15,6 +15,7 @@ Board::Board(int length):array2D(new Pair*[length]),size(length){
 
 Board::Board(const Board& other):array2D(new Pair*[other.size]),size(other.size){
 	copy(other);
+	cout<<"Copy"<<endl;
 }
 
 Board::~Board(){
@@ -44,13 +45,13 @@ ostream& operator<<(ostream& os, const Board& br){
 }
 
 
+
 Pair& Board::operator[](const Pair& pt)  {
 	if(pt.x<0 || pt.x>=size || pt.y<0 || pt.y>=size)
 		throw IllegalCoordinateException(pt.x,pt.y);
 	return array2D[pt.x][pt.y];
 
 }
-
 
 
 
@@ -63,7 +64,10 @@ Board& Board::operator=(char chr){
 }
 
 
+
 Board& Board::operator=(const Board& other) {
+	cout<<"=="<<endl;
+
 	if (this!=&other) {
 		if(this->size==other.size)
 			copy(other);
@@ -71,8 +75,10 @@ Board& Board::operator=(const Board& other) {
 			free();
 			size = other.size;
 			array2D = new Pair*[size];
+		/*
 			for(int i = 0; i < size; ++i)
 				array2D[i] = new Pair[size];
+			*/
 			copy(other);
 		}
 	}

@@ -1,3 +1,7 @@
+#pragma once
+
+#include<iostream>
+using namespace std;
 
 #ifndef PAIR_HPP_
 #define PAIR_HPP_
@@ -11,7 +15,7 @@ public:
 	Pair(int x,int y);
 	Pair& operator=(char chr);
     bool operator==(char other)const;
-
+    friend ostream& operator<< (ostream& os, Pair const& pr);
 
 private:
 };
