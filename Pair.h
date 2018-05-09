@@ -12,7 +12,7 @@ public:
 	int y;
 	char chr;
 	Pair();
-	Pair(int x,int y);
+	Pair(int x,int y);// , char chr);
 	Pair& operator=(char chr);
     bool operator==(char other)const;
     operator char() const;

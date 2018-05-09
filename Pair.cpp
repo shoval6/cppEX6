@@ -6,14 +6,15 @@
 
 
 Pair::Pair(){
+	//this->x = 0;
+	//this->y = 0;
 	this->chr = '.';
-
 }
 
 //Pair::Pair(char chr) : chr(chr){}
 
 
-Pair::Pair(int x,int y) : x(x),y(y){}
+Pair::Pair(int x,int y) : x(x),y(y){}//,chr('.'){}
 
 
 Pair& Pair::operator=(char chr){
