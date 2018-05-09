@@ -5,34 +5,34 @@
 
 using namespace std;
 
-Board::Board(int length) :
-	array2D(new Pair*[length]), size(length) {
-	for (int i = 0; i < size; ++i)
-		array2D[i] = new Pair[size];
+Board::Board(int size) {
+	create(size);
+
 }
 
-Board::Board(const Board& other) :
-	array2D(new Pair*[other.size]), size(other.size) {
-	copy(other);
+Board::Board(const Board& other){
+	create(other.tsize);
+	for (int i = 0; i < other.tsize; i++)
+			for (int j = 0; j < other.tsize; j++)
+				array2D[i][j] = other.array2D[i][j];
 }
 
 Board::~Board() {
 	free();
 }
 
-void Board::copy(const Board &other) {
-	this->size = other.size;
-	for (int i = 0; i < size; ++i)
-		array2D[i] = new Pair[size];
-	for (int i = 0; i < other.size; i++)
-		for (int j = 0; j < other.size; j++)
-			array2D[i][j] = other.array2D[i][j];
+void Board::create(int size) {
+	tsize = size;
+	array2D = new Pair*[tsize];
+	for (int i = 0; i < tsize; ++i)
+				array2D[i] = new Pair[tsize];
+
 
 }
 
 ostream& operator<<(ostream& os, const Board& br) {
-	for (int i = 0; i < br.size; i++) {
-		for (int j = 0; j < br.size; j++) {
+	for (int i = 0; i < br.tsize; i++) {
+		for (int j = 0; j < br.tsize; j++) {
 			os << br.array2D[i][j].chr;
 		}
 		os << "" << endl;
@@ -41,7 +41,7 @@ ostream& operator<<(ostream& os, const Board& br) {
 }
 
 Pair& Board::operator[](const Pair& pt) {
-	if (pt.x < 0 || pt.x >= size || pt.y < 0 || pt.y >= size)
+	if (pt.x < 0 || pt.x >= tsize || pt.y < 0 || pt.y >= tsize)
 		throw IllegalCoordinateException(pt.x, pt.y);
 	return array2D[pt.x][pt.y];
 
@@ -56,29 +56,31 @@ Board& Board::operator=(char chr) {
 }
 
 Board& Board::operator=(const Board& other) {
-	if (this != &other) {
-		if (this->size == other.size)
-			copy(other);
-		else {
+	if(this != &other){
+	if (tsize != other.tsize) {
 			free();
-			size = other.size;
-			array2D = new Pair*[size];
-			copy(other);
-		}
+			create(other.tsize);
+
+	}
+			for (int i = 0; i < other.tsize; i++)
+						for (int j = 0; j < other.tsize; j++)
+							array2D[i][j] = other.array2D[i][j];
+
+
 	}
 	return *this;
 }
 
 void Board::free() {
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < tsize; i++)
 		delete[] array2D[i]; // delete array within matrix
 	delete[] array2D;  // delete actual matrix
 
 }
 
 void Board::initial() {
-	for (int i = 0; i < size; i++)
-		for (int j = 0; j < size; j++)
+	for (int i = 0; i < tsize; i++)
+		for (int j = 0; j < tsize; j++)
 			array2D[i][j].chr = '.';
 }
 

@@ -6,7 +6,7 @@ using namespace std;
 class Board{
 
 	Pair** array2D;
-	int size;
+	int tsize;
 
 public:
 
@@ -17,7 +17,7 @@ Pair& operator[](const Pair& pt) ; //const std::pair<int,int>& Index
 Board& operator=(char chr);
 Board& operator=(const Board& other);
 void initial();
-void copy(const Board &other);
+void create(int size);
 void free();
 friend ostream& operator<<(ostream& os, const Board& br);
 };
