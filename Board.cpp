@@ -33,7 +33,7 @@ void Board::create(int size) {
 ostream& operator<<(ostream& os, const Board& br) {
 	for (int i = 0; i < br.tsize; i++) {
 		for (int j = 0; j < br.tsize; j++) {
-			os << br.array2D[i][j].chr;
+			os << br.array2D[i][j].getChar();
 		}
 		os << "" << endl;
 	}
@@ -41,9 +41,9 @@ ostream& operator<<(ostream& os, const Board& br) {
 }
 
 Pair& Board::operator[](const Pair& pt) {
-	if (pt.x < 0 || pt.x >= tsize || pt.y < 0 || pt.y >= tsize)
-		throw IllegalCoordinateException(pt.x, pt.y);
-	return array2D[pt.x][pt.y];
+	if (pt.getX() < 0 || pt.getX() >= tsize || pt.getY() < 0 || pt.getY() >= tsize)
+		throw IllegalCoordinateException(pt.getX(), pt.getY());
+	return array2D[pt.getX()][pt.getY()];
 
 }
 
@@ -81,6 +81,6 @@ void Board::free() {
 void Board::initial() {
 	for (int i = 0; i < tsize; i++)
 		for (int j = 0; j < tsize; j++)
-			array2D[i][j].chr = '.';
+			array2D[i][j].setChar('.');
 }
 

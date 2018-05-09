@@ -6,15 +6,12 @@
 
 
 Pair::Pair(){
-	//this->x = 0;
-	//this->y = 0;
-	this->chr = '.';
+	chr = '.';
 }
 
-//Pair::Pair(char chr) : chr(chr){}
 
 
-Pair::Pair(int x,int y) : x(x),y(y){}//,chr('.'){}
+Pair::Pair(int x,int y) : x(x),y(y){}
 
 
 Pair& Pair::operator=(char chr){
@@ -32,7 +29,23 @@ bool Pair::operator==(char other)const{
 
 }
 
-
 Pair::operator char() const{
 	return this->chr;
+}
+
+int Pair::getX() const{
+	return x;
+}
+
+int Pair::getY() const{
+	return y;
+
+}
+
+char Pair::getChar() const{
+	return chr;
+}
+
+void Pair::setChar(const char chr){
+	this->chr = chr;
 }
