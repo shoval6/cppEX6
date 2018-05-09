@@ -35,7 +35,7 @@ ostream& operator<<(ostream& os, const Board& br) {
 		for (int j = 0; j < br.size; j++) {
 			os << br.array2D[i][j].chr;
 		}
-		os << " " << endl;
+		os << "" << endl;
 	}
 	return os;
 }
